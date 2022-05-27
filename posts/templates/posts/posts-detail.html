@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-detail-card">
+        <article>
+            {% if user.is_admin %}
+                <div class="edit-btn-container">
+                    <a href="{% url 'posts:post_update' pk=post.pk %}">수정</a>
+                    <a href="{% url 'posts:post_delete' pk=post.pk %}">삭제</a>
+                </div>
+            {% endif %}
+            <header>
+                <h1>{{ post.title }}</h1>
+                <p class="author">author : {{ post.author }}</p>
+            </header>
+            {% if post.main_image %}
+                <img src="{{ post.main_image.url }}" alt="">
+            {% endif %}
+            {{ post.content }}
+            <footer>
+                created : {{ post.created_at }}<br>
+                updated : {{ post.updated_at }}
+            </footer>
+        </article>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+
+nav {
+    padding: 0.5rem 2rem;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.nav-mini-btn {
+    color: darkgray;
+    font-size: 0.8rem;
+}
+
+.main-logo {
+    color: white;
+}
+
+.post-card {
+    width: 350px;
+    margin: 1rem 0.5rem;
+    color: aliceblue;
+}
+
+.post-detail-card {
+    margin: auto;
+    width: 100%;
+}
+
+.author {
+    float: right;
+    margin-bottom: 2rem;
+}
+
+.edit-btn-container {
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.post-form-container {
+    width: 100%;
+}

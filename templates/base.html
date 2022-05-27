@@ -1,0 +1,41 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/pico-bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <title>Blog</title>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><strong><a class="main-logo" href="">BLOG</a></strong></li>
+        </ul>
+        <ul>
+            {% if user.is_admin %}
+                <li><a class="nav-mini-btn" href="{% url 'posts:post_create' %}">New Post</a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li><a class="nav-mini-btn" href="#">Log Out</a></li>
+            {% else %}
+                <li><a class="nav-mini-btn" href="#">Log In</a></li>
+            {% endif %}
+            <li><a class="nav-mini-btn" href="#">Sign Up</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src-="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

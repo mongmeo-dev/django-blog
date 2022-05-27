@@ -48,3 +48,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.is_admin
 
     object = UserManager()
+
+    def __str__(self):
+        return self.nickname
