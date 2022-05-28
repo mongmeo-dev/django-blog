@@ -2,10 +2,11 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 from .forms import PostForm
+from .mixins import SuperUserRequiredMixin
 from .models import Post
 
 
-class PostCreate(CreateView):
+class PostCreate(SuperUserRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/posts-create.html'
@@ -30,7 +31,7 @@ class PostDetail(DetailView):
     template_name = 'posts/posts-detail.html'
 
 
-class PostUpdate(UpdateView):
+class PostUpdate(SuperUserRequiredMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/posts-update.html'
@@ -39,7 +40,7 @@ class PostUpdate(UpdateView):
         return reverse('posts:post_detail', kwargs={'pk': self.object.pk})
 
 
-class PostDelete(DeleteView):
+class PostDelete(SuperUserRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('posts:post_list')
     template_name = 'posts/post-delete.html'

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 import environ
+from django.urls import reverse, reverse_lazy
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -135,3 +136,8 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+LOGIN_URL = reverse_lazy('accounts:login')
+LOGOUT_URL = ''
+LOGIN_REDIRECT_URL = reverse_lazy('posts:post_list')
+LOGOUT_REDIRECT_URL = reverse_lazy('posts:post_list')

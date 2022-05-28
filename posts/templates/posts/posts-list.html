@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <a href="{% url 'posts:post_detail' pk=post.pk %}">
-            <div class="post-card">
-                <article>
-                    <header>
-                        {{ post.title }} <br>
-                        {{ post.author }}
-                    </header>
-                    {% if post.main_image %}
-                        <img src="{{ post.main_image.url }}" width="300">
-                    {% endif %}
-                    <footer>{{ post.content|truncatechars:40 }}</footer>
-                </article>
-            </div>
-        </a>
-    {% endfor %}
+    <div class="container">
+        {% for post in posts %}
+
+            <a href="{% url 'posts:post_detail' pk=post.pk %}">
+                <div class="post-card">
+                    <article>
+                        <header>
+                            {{ post.title }} <br>
+                            {{ post.author }}
+                        </header>
+                        {% if post.main_image %}
+                            <img src="{{ post.main_image.url }}" width="300">
+                        {% endif %}
+                        <footer>{{ post.content|truncatechars:40 }}</footer>
+                    </article>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
 {% endblock %}

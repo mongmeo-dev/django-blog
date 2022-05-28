@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <div class="post-detail-card">
-        <article>
+    <div class="container">
+        <article class="post-detail-card">
             {% if user.is_admin %}
                 <div class="edit-btn-container">
                     <a href="{% url 'posts:post_update' pk=post.pk %}">수정</a>

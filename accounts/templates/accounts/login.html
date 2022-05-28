@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <article class="grid login-card">
+        <div>
+            <hgroup>
+                <h1>Log in</h1>
+            </hgroup>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="contrast">Login</button>
+            </form>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="container-fluid">
+        <small>Built with <a href="https://picocss.com" class="secondary">Pico</a> • <a
+                href="https://github.com/picocss/examples/tree/master/sign-in/" class="secondary">Source
+            code</a></small>
+    </footer><!-- ./ Footer -->
+{% endblock %}
